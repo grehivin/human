@@ -1,0 +1,129 @@
+﻿.check-list {
+    list-style-type: none;
+    background-image: url("../img/list-bullet-check.png");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    padding-left: 30px;
+}
+
+.pending-item {
+    list-style-type: none;
+    background-image: url("../img/list-bullet-box.png");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    padding-left: 30px;
+    text-decoration: none;
+}
+
+.round-top-left-corner {
+    border-top-left-radius: 5px;
+}
+
+.round-top-right-corner {
+    border-top-right-radius: 5px;
+}
+
+.round-bottom-left-corner {
+    border-bottom-left-radius: 5px;
+}
+
+.round-bottom-right-corner {
+    border-bottom-right-radius: 5px;
+}
+
+.round-top-corners {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.round-bottom-corners {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.round-left-corners {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.round-right-corners {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.round-all-corners {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.section {
+    border: 1px solid #EDEDED;
+    background-color: #ffffff;
+    /* background: linear-gradient(to bottom, #ffffff, #eaeaea); padding: 10px;*/
+}
+
+.section-title {
+    border: 1px solid #EDEDED;
+    background-color: #E6E6E6;
+    /* background: linear-gradient(to bottom, #ffffff, #eaeaea); */
+    padding: 10px;
+}
+
+.section-title:hover {
+    background-color: #DEDEDE;
+}
+
+.section-title-active {
+    border: 1px solid #EDEDED;
+    background-color: #74af45;
+    /* background: linear-gradient(to bottom, #ff9900, #eaeaea); */
+    padding: 10px;
+}
+
+.section-title-active:hover {
+    background-color: #559027;
+    color: #FFFFFF;
+}
+
+.section-item {
+    border: 1px solid #EDEDED;
+    background-color: #FFFFFF;
+    /* background: linear-gradient(to bottom, #ffffff, #eaeaea); */
+    padding: 10px;
+}
+
+.section-item:hover {
+    background-color: #F0F0F0;
+}
+
+.btn-start-course {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #74af45;
+    width: 250px;
+    height: 50px;
+    background-image: url("../img/button-start-course.png");
+    background-size: 32px 32px;
+    background-position: 30px 10px; /*the original position was 30px 9px*/
+    background-repeat: no-repeat;
+}
+
+.btn-start-course .icon {
+    margin-right: 5px;
+}
+
+.btn-start-course:hover {
+    background-color: #559027;
+    color: #FFFFFF;
+}
