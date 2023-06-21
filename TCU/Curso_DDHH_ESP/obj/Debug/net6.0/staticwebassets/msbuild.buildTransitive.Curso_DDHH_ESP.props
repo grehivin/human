@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Curso_DDHH_ESP.props" />
-</Project>
