@@ -3,10 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using BackEnd.dal.entities;
 
-// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
-// If you have enabled NRTs for your project, then un-comment the following line:
-// #nullable disable
-
 namespace BackEnd.dal
 {
     public partial class HumanRightsContext : DbContext
@@ -20,15 +16,15 @@ namespace BackEnd.dal
         {
         }
 
-        public virtual DbSet<ContentOptions> ContentOptions { get; set; }
-        public virtual DbSet<Contents> Contents { get; set; }
-        public virtual DbSet<Courses> Courses { get; set; }
+        public virtual DbSet<ContentOption> ContentOptions { get; set; }
+        public virtual DbSet<Content> Contents { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<CoursesByPerson> CoursesByPerson { get; set; }
-        public virtual DbSet<Persons> Persons { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<RolesAssignedToUsers> RolesAssignedToUsers { get; set; }
-        public virtual DbSet<Topics> Topics { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<RolesByUser> RolesAssignedToUsers { get; set; }
+        public virtual DbSet<Topic> Topics { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,7 +36,7 @@ namespace BackEnd.dal
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ContentOptions>(entity =>
+            modelBuilder.Entity<ContentOption>(entity =>
             {
                 entity.ToTable("contentOptions", "lms");
 
@@ -65,7 +61,7 @@ namespace BackEnd.dal
                     .HasConstraintName("fk_contentOptions_contents");
             });
 
-            modelBuilder.Entity<Contents>(entity =>
+            modelBuilder.Entity<Content>(entity =>
             {
                 entity.ToTable("contents", "lms");
 
@@ -93,13 +89,13 @@ namespace BackEnd.dal
                     .HasConstraintName("fk_contents_topics");
             });
 
-            modelBuilder.Entity<Courses>(entity =>
+            modelBuilder.Entity<Course>(entity =>
             {
                 entity.ToTable("courses", "lms");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Course)
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasColumnName("course")
                     .HasMaxLength(255)
@@ -140,7 +136,7 @@ namespace BackEnd.dal
                     .HasConstraintName("fk_coursesByPerson_persons");
             });
 
-            modelBuilder.Entity<Persons>(entity =>
+            modelBuilder.Entity<Person>(entity =>
             {
                 entity.ToTable("persons", "lms");
 
@@ -172,7 +168,7 @@ namespace BackEnd.dal
                     .HasConstraintName("fk_persons_users");
             });
 
-            modelBuilder.Entity<Roles>(entity =>
+            modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("roles", "security");
 
@@ -187,7 +183,7 @@ namespace BackEnd.dal
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<RolesAssignedToUsers>(entity =>
+            modelBuilder.Entity<RolesByUser>(entity =>
             {
                 entity.ToTable("rolesAssignedToUsers", "security");
 
@@ -210,7 +206,7 @@ namespace BackEnd.dal
                     .HasConstraintName("fk_rolesAssignedToUsers_users");
             });
 
-            modelBuilder.Entity<Topics>(entity =>
+            modelBuilder.Entity<Topic>(entity =>
             {
                 entity.ToTable("topics", "lms");
 
@@ -220,7 +216,7 @@ namespace BackEnd.dal
 
                 entity.Property(e => e.Enabled).HasColumnName("enabled");
 
-                entity.Property(e => e.Topic)
+                entity.Property(e => e.Subject)
                     .IsRequired()
                     .HasColumnName("topic")
                     .HasMaxLength(255)
@@ -233,7 +229,7 @@ namespace BackEnd.dal
                     .HasConstraintName("fk_topics_courses");
             });
 
-            modelBuilder.Entity<Users>(entity =>
+            modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("users", "security");
 

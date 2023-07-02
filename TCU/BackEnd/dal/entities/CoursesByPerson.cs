@@ -3,28 +3,47 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
-// If you have enabled NRTs for your project, then un-comment the following line:
-// #nullable disable
-
 namespace BackEnd.dal.entities
 {
     public partial class CoursesByPerson
     {
-        [Display(Name = "")]
+        [Display(Name = "ID")]
         public int Id { get; set; }
-        [Display(Name = "")]
-        public int? PersonId { get; set; }
-        [Display(Name = "")]
-        public int? CourseId { get; set; }
-        [Display(Name = "")]
-        public bool? Completed { get; set; }
-        [Display(Name = "")]
-        public bool? Approved { get; set; }
+        [Display(Name = "ID Persona")]
+        public int PersonId { get; set; }
+        [Display(Name = "ID Curso")]
+        public int CourseId { get; set; }
+        [Display(Name = "¿Completado?")]
+        public bool Completed { get; set; }
+        [Display(Name = "¿Aprobado?")]
+        public bool Approved { get; set; }
 
-        [Display(Name = "")]
-        public virtual Courses Course { get; set; }
-        [Display(Name = "")]
-        public virtual Persons Person { get; set; }
+        public CoursesByPerson()
+        {
+            Id = 0;
+            PersonId = 0;
+            CourseId = 0;
+            Completed = false;
+            Approved = false;
+        }
+
+        public CoursesByPerson(int personId, int courseId, bool completed, bool approved)
+        {
+            PersonId = personId;
+            CourseId = courseId;
+            Completed = completed;
+            Approved = approved;
+        }
+
+        public override string ToString()
+        {
+            string id = "    \"ID\": " + Id + ",\n";
+            string pid = "    \"IDPersona\": " + PersonId + ",\n";
+            string cid = "    \"IDCurso\": " + CourseId + ",\n";
+            string completed = "    \"¿Completado?\": " + Completed + ",\n";
+            string approved = "    \"¿Aprobado?\": " + Approved + ",\n";
+
+            return "CursosPorPersona \n{\n" + id + pid + cid + completed + approved + "}";
+        }
     }
 }
