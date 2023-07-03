@@ -18,9 +18,8 @@ go
 create table lms.persons (
 	id int identity (100000, 1) not null primary key,
 	name varchar (50) not null,
-	lastname varchar (50) not null,
-	email varchar (50) not null,
-	userID int)
+	lastName varchar (50) not null,
+	email varchar (50) not null)
 go
 
 create table lms.courses (
@@ -71,7 +70,7 @@ alter table lms.contents
 	check constraint fk_contents_topics
 go
 
-create table lms.contentOptions (
+create table lms.options (
 	id int identity (100000, 1) not null primary key,
 	contentID int,
 	descr varchar (255) not null,
@@ -79,20 +78,20 @@ create table lms.contentOptions (
 	valid bit)
 go
 
-alter table lms.contentOptions
+alter table lms.options
 	with check
-	add constraint fk_contentOptions_contents
+	add constraint fk_options_contents
 	foreign key (contentID)
 	references lms.contents (id)
 	on delete set null
 	on update cascade
 go
 
-alter table lms.contentOptions
-	check constraint fk_contentOptions_contents
+alter table lms.options
+	check constraint fk_options_contents
 go
 
-create table lms.coursesByPerson (
+create table lms.personCourses (
 	id int identity (100000, 1) not null primary key,
 	personID int,
 	courseID int,
@@ -100,30 +99,30 @@ create table lms.coursesByPerson (
 	approved bit)
 go
 
-alter table lms.coursesByPerson
+alter table lms.personCourses
 	with check
-	add constraint fk_coursesByPerson_persons
+	add constraint fk_personCourses_persons
 	foreign key (personID)
 	references lms.persons (id)
 	on delete set null
 	on update cascade
 go
 
-alter table lms.coursesByPerson
-	check constraint fk_coursesByPerson_persons
+alter table lms.personCourses
+	check constraint fk_personCourses_persons
 go
 
-alter table lms.coursesByPerson
+alter table lms.personCourses
 	with check
-	add constraint fk_coursesByPerson_courses
+	add constraint fk_personCourses_courses
 	foreign key (courseID)
 	references lms.courses (id)
 	on delete set null
 	on update cascade
 go
 
-alter table lms.coursesByPerson
-	check constraint fk_coursesByPerson_courses
+alter table lms.personCourses
+	check constraint fk_personCourses_courses
 go
 -- end: training tables
 
@@ -136,6 +135,7 @@ create table security.users (
 	personID int,
 	username varchar (50) not null,
 	password varchar (255) not null,
+	confirmPassword varchar (255),
 	enabled bit)
 go
 
@@ -152,63 +152,50 @@ alter table security.users
 	check constraint fk_users_persons
 go
 
-alter table lms.persons
-	with check
-	add constraint fk_persons_users
-	foreign key (userID)
-	references security.users (id)
-	on delete no action
-	on update no action
-go
-
-alter table lms.persons
-	check constraint fk_persons_users
-go
-
 create table security.roles (
 	id int identity (100000, 1) not null primary key,
 	role varchar (255) not null,
 	enabled bit)
 go
 
-create table security.rolesAssignedToUsers (
+create table security.userRoles (
 	id int identity(100000, 1) not null primary key,
 	userID int,
 	roleID int)
 go
 
-alter table security.rolesAssignedToUsers
+alter table security.userRoles
 	with check
-	add constraint fk_rolesAssignedToUsers_roles
+	add constraint fk_userRoles_roles
 	foreign key (roleID)
 	references security.roles (id)
 	on delete set null
 	on update cascade
 go
 
-alter table security.rolesAssignedToUsers
-	check constraint fk_rolesAssignedToUsers_roles
+alter table security.userRoles
+	check constraint fk_userRoles_roles
 go
 
-alter table security.rolesAssignedToUsers
+alter table security.userRoles
 	with check
-	add constraint fk_rolesAssignedToUsers_users
+	add constraint fk_userRoles_users
 	foreign key (userID)
 	references security.users (id)
 	on delete set null
 	on update cascade
 go
 
-alter table security.rolesAssignedToUsers
-	check constraint fk_rolesAssignedToUsers_users
+alter table security.userRoles
+	check constraint fk_userRoles_users
 go
 
 insert into security.users (
 	username,
 	password,
 	enabled)
-values (
-	'admin',
+values
+	('admin',
 	'Der3CH05huM4n0$',
 	1)
 go
@@ -216,12 +203,14 @@ go
 insert into security.roles (
 	role,
 	enabled)
-values (
-	'Administrador',
+values 
+	('Administrador',
+	1),
+	('Estudiante',
 	1)
 go
 
-insert into security.rolesAssignedToUsers (
+insert into security.userRoles (
 	userId,
 	roleId)
 values (
@@ -232,4 +221,7 @@ go
 
 -- dev area, commands to be used by developer to make changes or corrections
 --alter table lms.persons add userID int;
+--insert into security.roles (role, enabled) values ('Estudiante',1)
+--delete from security.roles where id = 100002
+--select * from security.roles
 go
