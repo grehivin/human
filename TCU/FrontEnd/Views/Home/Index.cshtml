@@ -2,11 +2,6 @@
     ViewData["Title"] = "Inicio";
 }
 
-<!--div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</!--div -->
-
 <div class="text-left">
     <h1 class="display-4" style="text-emphasis">Educación en Derechos Humanos</h1>
 </div>
@@ -25,6 +20,19 @@
     </list>
 </div>
 <br />
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <a class="btn-login" asp-controller="Session" asp-action="Login">Iniciar sesión</a>
+        <br />
+        <a class="btn-signup" asp-controller="Session" asp-action="Signup">Registrarse</a>
+    }
+    else
+    {
+        <a class="btn-start" asp-controller="Learning" asp-action="HumanRights">Empezar</a>
+    }
+}
+
 <!--a class="btn-start-course" asp-controller="Course" asp-action="Index">Empezar el curso</a -->
 <br />
-<a class="btn-start-course" asp-controller="Student" asp-action="SignUp">Registrarse</a>
+

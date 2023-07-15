@@ -5,12 +5,12 @@ using System.Xml.Linq;
 
 namespace BackEnd.dal.entities
 {
-    public partial class PersonCourses
+    public partial class UserCourses
     {
         [Display(Name = "ID")]
         public int Id { get; set; }
         [Display(Name = "ID Persona")]
-        public int PersonId { get; set; }
+        public int UserId { get; set; }
         [Display(Name = "ID Curso")]
         public int CourseId { get; set; }
         [Display(Name = "¿Completado?")]
@@ -19,20 +19,20 @@ namespace BackEnd.dal.entities
         public bool Approved { get; set; }
 
         public virtual Courses Course { get; set; }
-        public virtual Persons Person { get; set; }
+        public virtual Users User { get; set; }
 
-        public PersonCourses()
+        public UserCourses()
         {
             Id = 0;
-            PersonId = 0;
+            UserId = 0;
             CourseId = 0;
             Completed = false;
             Approved = false;
         }
 
-        public PersonCourses(int personId, int courseId, bool completed, bool approved)
+        public UserCourses(int personId, int courseId, bool completed, bool approved)
         {
-            PersonId = personId;
+            UserId = personId;
             CourseId = courseId;
             Completed = completed;
             Approved = approved;
@@ -41,12 +41,12 @@ namespace BackEnd.dal.entities
         public override string ToString()
         {
             string id = "    \"ID\": " + Id + ",\n";
-            string pid = "    \"IDPersona\": " + PersonId + ",\n";
+            string uid = "    \"IDUsuario\": " + UserId + ",\n";
             string cid = "    \"IDCurso\": " + CourseId + ",\n";
             string completed = "    \"¿Completado?\": " + Completed + ",\n";
             string approved = "    \"¿Aprobado?\": " + Approved + ",\n";
 
-            return "CursosPorPersona \n{\n" + id + pid + cid + completed + approved + "}";
+            return "CursosPorUsuario \n{\n" + id + uid + cid + completed + approved + "}";
         }
     }
 }

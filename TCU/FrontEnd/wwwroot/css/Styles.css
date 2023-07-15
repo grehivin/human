@@ -100,7 +100,7 @@
     background-color: #F0F0F0;
 }
 
-.btn-start-course {
+.btn-start {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,17 +119,21 @@
     background-repeat: no-repeat;
 }
 
-.btn-start-course .icon {
+.btn-start .icon {
     margin-right: 5px;
 }
 
-.btn-start-course:hover {
+.btn-start:hover {
     background-color: #559027;
     color: #FFFFFF;
 }
 
-.btn-sign-up {
+.btn-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px 20px;
+    border: none;
     border-radius: 7px;
     text-decoration: none;
     text-align: center;
@@ -139,7 +143,34 @@
     height: 50px;
 }
 
-.btn-sign-up:hover {
+.btn-signup:hover {
     background-color: #559027;
     color: #FFFFFF;
+}
+
+.btn-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #3366FF;
+    width: 250px;
+    height: 50px;
+}
+
+.btn-login:hover {
+    background-color: #2B57D9;
+    color: #FFFFFF;
+}
+
+.selection-off {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

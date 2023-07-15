@@ -1,0 +1,52 @@
+﻿@model BackEnd.dal.entities.Users
+
+@{
+    ViewData["Title"] = "Personas";
+}
+
+<h1>Registro</h1>
+
+<h4>Nuevo estudiante</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="SignUp" asp-controller="Session">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <h6>Datos personales</h6>
+            <div class="form-group">
+                <label asp-for=@Model.Name class="control-label"></label>
+                <input asp-for=@Model.Name class="form-control" />
+                <span asp-validation-for=@Model.Name class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.Lastname class="control-label"></label>
+                <input asp-for=@Model.Lastname class="form-control" />
+                <span asp-validation-for=@Model.Lastname class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.Email class="control-label"></label>
+                <input asp-for=@Model.Email class="form-control" />
+                <span asp-validation-for=@Model.Email class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.Password class="control-label"></label>
+                <input asp-for=@Model.Password class="form-control" />
+                <span asp-validation-for=@Model.Password class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.ConfirmPassword class="control-label"></label>
+                <input asp-for=@Model.ConfirmPassword class="form-control" />
+                <span asp-validation-for=@Model.ConfirmPassword class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Registrarme" class="btn btn-primary"/> 
+                <a class="btn btn-danger" asp-controller="Home" asp-action="Index">Cancelar</a> 
+            </div>
+
+        </form>
+    </div>
+</div>

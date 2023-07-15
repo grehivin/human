@@ -19,7 +19,7 @@ namespace BackEnd.dal.entities
         [Display(Name = "Temas")]
         public virtual ICollection<Topics> Topics { get; set; }
         [Display(Name = "Cursos por Persona")]
-        public virtual ICollection<PersonCourses> PersonCourses { get; set; }
+        public virtual ICollection<UserCourses> PersonCourses { get; set; }
 
 
         public Courses()

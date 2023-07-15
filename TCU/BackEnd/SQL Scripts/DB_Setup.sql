@@ -15,13 +15,6 @@ go
 create schema lms;
 go
 
-create table lms.persons (
-	id int identity (100000, 1) not null primary key,
-	name varchar (50) not null,
-	lastName varchar (50) not null,
-	email varchar (50) not null)
-go
-
 create table lms.courses (
 	id int identity (100000, 1) not null primary key,
 	course varchar (255) not null,
@@ -91,38 +84,25 @@ alter table lms.options
 	check constraint fk_options_contents
 go
 
-create table lms.personCourses (
+create table lms.userCourses (
 	id int identity (100000, 1) not null primary key,
-	personID int,
+	userID int,
 	courseID int,
 	completed bit,
 	approved bit)
 go
 
-alter table lms.personCourses
+alter table lms.userCourses
 	with check
-	add constraint fk_personCourses_persons
-	foreign key (personID)
-	references lms.persons (id)
-	on delete set null
-	on update cascade
-go
-
-alter table lms.personCourses
-	check constraint fk_personCourses_persons
-go
-
-alter table lms.personCourses
-	with check
-	add constraint fk_personCourses_courses
+	add constraint fk_userCourses_courses
 	foreign key (courseID)
 	references lms.courses (id)
 	on delete set null
 	on update cascade
 go
 
-alter table lms.personCourses
-	check constraint fk_personCourses_courses
+alter table lms.userCourses
+	check constraint fk_userCourses_courses
 go
 -- end: training tables
 
@@ -132,24 +112,26 @@ go
 
 create table security.users (
 	id int identity (100000, 1) not null primary key,
-	personID int,
-	username varchar (50) not null,
+	name varchar (50) not null,
+	lastName varchar (50) not null,
+	email varchar (50) not null,
+	userName varchar (50) not null,
 	password varchar (255) not null,
 	confirmPassword varchar (255),
 	enabled bit)
 go
 
-alter table security.users
+alter table lms.userCourses
 	with check
-	add constraint fk_users_persons
-	foreign key (personID)
-	references lms.persons (id)
-	on delete no action
-	on update no action
+	add constraint fk_userCourses_users
+	foreign key (userID)
+	references security.users (id)
+	on delete set null
+	on update cascade
 go
 
-alter table security.users
-	check constraint fk_users_persons
+alter table lms.userCourses
+	check constraint fk_userCourses_users
 go
 
 create table security.roles (
@@ -191,11 +173,17 @@ alter table security.userRoles
 go
 
 insert into security.users (
+	name,
+	lastName,
+	email,
 	username,
 	password,
 	enabled)
 values
-	('admin',
+	('Asociación',
+	'Jóvenes por los Derechos Humanos CR',
+	'tbd@domain.com',
+	'admin',
 	'Der3CH05huM4n0$',
 	1)
 go

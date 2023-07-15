@@ -10,7 +10,7 @@
     <title>@ViewData["Title"] - Jóvenes por los Derechos Humanos</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Curso_DDHH_ESP.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Curso_DDHH_ESP.styles.css" asp-append-version="true" /> <!-- -->
     <link rel="stylesheet" href="~/css/Styles.css" />
 </head>
 <body>
@@ -25,9 +25,33 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                        </li>
+                        </li> -->
+                        @{
+                            if (!User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Login">Iniciar sesión</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Signup">Registrarse</a>
+                                </li>
+                            }
+                            else
+                            {
+                                if (User.IsInRole("Estudiante") || User.IsInRole("Administrador"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="Login">Educación</a>
+                                    </li>
+                                }
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Logout">Cerrar sesión</a>
+                                </li>
+                            }
+                        }
                         <!-- <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">Acerca de...</a>
                         </li> -->

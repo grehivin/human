@@ -1,0 +1,41 @@
+﻿@model BackEnd.dal.entities.Users
+
+@{
+    ViewData["Title"] = "Ingreso";
+}
+
+<h1>Iniciar sesión</h1>
+<hr />
+
+<div class="row">
+    <div class="col-sm-5">
+        <form asp-action="Login" asp-controller="Session" method="post">
+
+            @if (TempData.ContainsKey("Message"))
+            {
+                <div class="alert alert-success">
+                    @TempData["Message"]
+                </div>
+            }
+
+            <div class="form-group">
+                <label asp-for=@Model.Username class="control-label"></label>
+                <input asp-for=@Model.Username class="form-control" />
+                <span asp-validation-for=@Model.Username class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.Password class="control-label"></label>
+                <input asp-for=@Model.Password class="form-control" />
+                <span asp-validation-for=@Model.Password class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Ingresar" class="btn btn-primary"/> 
+                <a class="btn btn-danger" asp-controller="Home" asp-action="Index">Cancelar</a> 
+                <br />
+                <br />
+                <a class="text-dark" asp-controller="Session" asp-action="PasswordReset">Olvidé mi contraseña</a>
+            </div>
+        </form>
+    </div>
+</div>

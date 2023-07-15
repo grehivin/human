@@ -23,8 +23,7 @@ namespace BackEnd.dal
         public virtual DbSet<Contents> Contents { get; set; }
         public virtual DbSet<Courses> Courses { get; set; }
         public virtual DbSet<Options> Options { get; set; }
-        public virtual DbSet<PersonCourses> PersonCourses { get; set; }
-        public virtual DbSet<Persons> Persons { get; set; }
+        public virtual DbSet<UserCourses> PersonCourses { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Topics> Topics { get; set; }
         public virtual DbSet<UserRoles> UserRoles { get; set; }
@@ -113,9 +112,9 @@ namespace BackEnd.dal
                     .HasConstraintName("fk_options_contents");
             });
 
-            modelBuilder.Entity<PersonCourses>(entity =>
+            modelBuilder.Entity<UserCourses>(entity =>
             {
-                entity.ToTable("personCourses", "lms");
+                entity.ToTable("userCourses", "lms");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -125,44 +124,19 @@ namespace BackEnd.dal
 
                 entity.Property(e => e.CourseId).HasColumnName("courseID");
 
-                entity.Property(e => e.PersonId).HasColumnName("personID");
+                entity.Property(e => e.UserId).HasColumnName("userID");
 
                 entity.HasOne(d => d.Course)
                     .WithMany(p => p.PersonCourses)
                     .HasForeignKey(d => d.CourseId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("fk_personCourses_courses");
+                    .HasConstraintName("fk_userCourses_courses");
 
-                entity.HasOne(d => d.Person)
-                    .WithMany(p => p.PersonCourses)
-                    .HasForeignKey(d => d.PersonId)
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserCourses)
+                    .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("fk_personCourses_persons");
-            });
-
-            modelBuilder.Entity<Persons>(entity =>
-            {
-                entity.ToTable("persons", "lms");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasColumnName("email")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Lastname)
-                    .IsRequired()
-                    .HasColumnName("lastName")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasColumnName("name")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .HasConstraintName("fk_userCourses_users");
             });
 
             modelBuilder.Entity<Roles>(entity =>
@@ -245,18 +219,29 @@ namespace BackEnd.dal
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PersonId).HasColumnName("personID");
-
-                entity.Property(e => e.Username)
+                entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasColumnName("username")
+                    .HasColumnName("email")
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Person)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.PersonId)
-                    .HasConstraintName("fk_users_persons");
+                entity.Property(e => e.Lastname)
+                    .IsRequired()
+                    .HasColumnName("lastName")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasColumnName("userName")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

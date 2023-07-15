@@ -13,56 +13,73 @@ namespace BackEnd.dal.entities
     {
         [Display(Name = "ID")]
         public int Id { get; set; }
-        [Display(Name = "ID Persona")]
-        public int PersonId { get; set; }
-        [Required]
-        [Display(Name = "Usuario")]
+        [Required(ErrorMessage = "Este campo es requerido, por favor ingrese un valor.")]
+        [Display(Name = "Nombre")]
+        public string Name { get; set; }
+        [Required(ErrorMessage = "Este campo es requerido, por favor ingrese un valor.")]
+        [Display(Name = "Apellidos")]
+        public string Lastname { get; set; }
+        [Required(ErrorMessage = "Este campo es requerido, por favor ingrese un valor.")]
+        [Display(Name = "Correo electrónico")]
+        public string Email { get; set; }
+        [Display(Name = "Correo electrónico")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "La contraseña es necesaria para realizar el registro del usuario.")]
+        [StringLength(255, ErrorMessage = "La contraseña debe tener mínimo 8 caracteres.", MinimumLength = 8)]
+        [RegularExpression(@"[a-zA-Z0-9!@#$%^&*_]+$", ErrorMessage = "La contraseña debe estar compuesta por letras, números y caracteres especiales (!@#$%^&*_).")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Debe confirmar la contraseña para realizar el registro del usuario.")]
+        [StringLength(255, ErrorMessage = "La contraseña debe tener mínimo 8 caracteres.", MinimumLength = 8)]
+        [RegularExpression(@"[a-zA-Z0-9!@#$%^&*_]+$", ErrorMessage = "La contraseña debe estar compuesta por letras, números y caracteres especiales (!@#$%^&*_).")]
         [Compare("Password", ErrorMessage = "La contraseña no coincide, por favor ingrese la misma contraseña ambas veces.")]
         [DataType(DataType.Password)]
+        [Display(Name = "Confirmación de contraseña")]
         public string ConfirmPassword { get; set; }
         [Display(Name = "¿Habilitado?")]
         public bool Enabled { get; set; }
 
-        [Display(Name = "Persona")]
-        public virtual Persons Person { get; set; }
+        [Display(Name = "Cursos")]
+        public virtual ICollection<UserCourses> UserCourses { get; set; }
         [Display(Name = "Roles")]
         public virtual ICollection<UserRoles> UserRoles { get; set; }
 
         public Users()
         {
             Id = 0;
-            PersonId = 0;
             Username = string.Empty;
             Password = string.Empty;
             Enabled = false;
-            Person = new Persons();
+            Name = string.Empty;
+            Lastname = string.Empty;
+            Email = string.Empty;
             UserRoles = new HashSet<UserRoles>();
+            UserCourses = new HashSet<UserCourses>();
         }
 
-        public Users(int personId, string username, string password, bool enabled, Persons person, ICollection<UserRoles> rolesAssignedToUsers)
+        public Users(string username, string password, bool enabled, string name, string lastname, string email, ICollection<UserRoles> rolesAssignedToUsers, ICollection<UserCourses> coursesByPerson)
         {
-            PersonId = personId;
             Username = username;
             Password = password;
             Enabled = enabled;
-            Person = person;
+            Name = name;
+            Lastname = lastname;
+            Email = email;
+            UserCourses = coursesByPerson;
             UserRoles = rolesAssignedToUsers;
         }
 
         public override string ToString()
         {
             string id = "    \"ID\": " + Id + ",\n";
-            string pid = "    \"IDPersona\": " + PersonId + ",\n";
+            string name = "    \"Nombre\": " + Name + ",\n";
+            string lastName = "    \"Apellidos\": " + Lastname + ",\n";
+            string email = "    \"eMail\": " + Email + ",\n";
             string username = "    \"Usuario\": " + Username + ",\n";
             string enabled = "    \"¿Habilitado?\": " + Enabled + ",\n";
 
-            return "Usuario \n{\n" + id + pid + username + enabled + "}";
+            return "Usuario \n{\n" + id + name + lastName + email + username + enabled + "}";
         }
     }
 }
