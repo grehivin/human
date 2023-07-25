@@ -1,12 +1,7 @@
-﻿using BackEnd.dal.entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using bend.dal.entities;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BackEnd.bil
+namespace bend.bil
 {
     public interface ISecurity
     {

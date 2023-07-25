@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "¡Error!";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Error al crear el elemento</h1>
+</div>
+<div class="row mt-5">
+    <div class="col-sm-4 offset-sm-4">
+        <p>No se puede crear el elemento porque ya existe otro elemento igual.</p>
+        @if (TempData.ContainsKey("Message"))
+        {
+            <div class="alert alert-success">
+                @TempData["Message"]
+            </div>
+        }
+        <p>Por favor modifique el registro existente o cree un elemento nuevo diferente.</p>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Regresar</a>
+    </div>
+</div>

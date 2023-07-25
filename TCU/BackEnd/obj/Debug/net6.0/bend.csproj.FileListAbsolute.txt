@@ -1,0 +1,14 @@
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\bin\Debug\net6.0\bend.deps.json
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\bin\Debug\net6.0\bend.runtimeconfig.json
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\bin\Debug\net6.0\bend.dll
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\bin\Debug\net6.0\bend.pdb
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.csproj.AssemblyReference.cache
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.AssemblyInfoInputs.cache
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.AssemblyInfo.cs
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.csproj.CoreCompileInputs.cache
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.dll
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\refint\bend.dll
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.pdb
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\bend.genruntimeconfig.cache
+C:\Users\grehivin\source\repos\human\TCU\BackEnd\obj\Debug\net6.0\ref\bend.dll

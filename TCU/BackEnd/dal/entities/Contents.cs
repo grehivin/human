@@ -6,7 +6,7 @@ using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Xml.Linq;
 
-namespace BackEnd.dal.entities
+namespace bend.dal.entities
 {
     public partial class Contents
     {
@@ -52,10 +52,10 @@ namespace BackEnd.dal.entities
             string id = "    \"ID\": " + Id + ",\n";
             string tid = "    \"IDTema\": " + TopicId + ",\n";
             string ct = "    \"TipoContenido\": " + ContentType + ",\n";
-            string descr = "    \"Habilitada\": " + Content + ",\n";
-            string enabled = "    \"Valida\": " + Enabled + ",\n";
+            string descr = "    \"Descripción\": " + Content + ",\n";
+            string enabled = "    \"Habilitado\": " + Enabled + ",\n";
 
-            return "Contenido \n{\n" + id + tid + ct + descr + enabled + "}";
+            return "Contenido \n{\n" + id + tid + ct + descr + enabled + "\n}";
         }
     }
 }

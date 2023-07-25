@@ -4660,7 +4660,7 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "BackEnd/1.0.0": {
+      "bend/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -4669,10 +4669,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.32"
         },
         "compile": {
-          "bin/placeholder/BackEnd.dll": {}
+          "bin/placeholder/bend.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BackEnd.dll": {}
+          "bin/placeholder/bend.dll": {}
         }
       }
     }
@@ -12841,19 +12841,19 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "BackEnd/1.0.0": {
+    "bend/1.0.0": {
       "type": "project",
-      "path": "../BackEnd/BackEnd.csproj",
-      "msbuildProject": "../BackEnd/BackEnd.csproj"
+      "path": "../BackEnd/bend.csproj",
+      "msbuildProject": "../BackEnd/bend.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BackEnd >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.32",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.32",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.32",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.14"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.14",
+      "bend >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12863,9 +12863,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\FrontEnd\\FrontEnd.csproj",
-      "projectName": "FrontEnd",
-      "projectPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\FrontEnd\\FrontEnd.csproj",
+      "projectUniqueName": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\FrontEnd\\fend.csproj",
+      "projectName": "fend",
+      "projectPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\FrontEnd\\fend.csproj",
       "packagesPath": "C:\\Users\\grehivin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\FrontEnd\\obj\\",
       "projectStyle": "PackageReference",
@@ -12888,8 +12888,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\BackEnd.csproj": {
-              "projectPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\BackEnd.csproj"
+            "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\bend.csproj": {
+              "projectPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\bend.csproj"
             }
           }
         }

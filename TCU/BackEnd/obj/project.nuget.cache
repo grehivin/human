@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NzIMhBWVA9YTxk7aaAM0v4E8qjRscJ4ejHuEjWJA93IcJ1eSE7OOcn5/SL7ZshiYMlqdmUQDGZaeHSgvKZBBxg==",
+  "dgSpecHash": "rJ0qBlGzVNodDFvhndT0PPR03hKtQoQ3P4ny4PaCwQXQ4oUUpW1gJGIIbTf6/o+n41XBDN6tm9Sht/45uVxXVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\BackEnd.csproj",
+  "projectFilePath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\bend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\grehivin\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\grehivin\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

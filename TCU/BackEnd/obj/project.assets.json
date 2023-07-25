@@ -7128,9 +7128,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\BackEnd.csproj",
-      "projectName": "BackEnd",
-      "projectPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\BackEnd.csproj",
+      "projectUniqueName": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\bend.csproj",
+      "projectName": "bend",
+      "projectPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\bend.csproj",
       "packagesPath": "C:\\Users\\grehivin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",

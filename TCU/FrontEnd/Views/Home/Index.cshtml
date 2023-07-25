@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Inicio";
+﻿@model IEnumerable<bend.dal.entities.Courses>
+
+@{
+    ViewData["Title"] = "Educación";
 }
 
 <div class="text-left">
@@ -8,17 +10,19 @@
 <div class="text-left">
     <p>¿Conoces tus derechos? La <i>Declaración Universal de Derechos Humanos</i> garantiza los derechos y libertades básicas de todas las personas del mundo.</p>
     <p>
-        Para defender tus derechos es necesario que primero los conozcas. En este curso interactivo aprenderás sobre tus derechos como ser humano, de tal forma
+        Para defender tus derechos es necesario que primero los conozcas. Estos cursos interactivos te ayudarán a aprender sobre tus derechos como ser humano, de tal forma
         que los puedas defender por ti y por los demás.
     </p>
 
-    <h2 class="display-5">En este curso aprenderás sobre:</h2>
+    <h2 class="display-5">En estos cursos aprenderás sobre:</h2>
     <list>
         <li class="check-list">Los 30 derechos humanos que todas las personas tienen</li>
         <li class="check-list">Por qué tenemos derechos humanos y cómo empezaron</li>
         <li class="check-list">La importancia de los derechos humanos para todos</li>
     </list>
 </div>
+<br />
+<h4 class="display-6" style="text-emphasis">Seleccione el curso que desea estudiar:</h4>
 <br />
 @{
     if (!User.Identity.IsAuthenticated)
@@ -29,10 +33,13 @@
     }
     else
     {
-        <a class="btn-start" asp-controller="Learning" asp-action="HumanRights">Empezar</a>
+        foreach (var item in Model)
+        {
+            if (item.Enabled)
+            {
+                <a class="btn-start" asp-controller="Learning" asp-action="HumanRights" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Course)</a>
+                <br />
+            }
+        }
     }
 }
-
-<!--a class="btn-start-course" asp-controller="Course" asp-action="Index">Empezar el curso</a -->
-<br />
-

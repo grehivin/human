@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "¡Error!";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Error al intentar ejecutar una acción en el elemento</h1>
+</div>
+<div class="row mt-5">
+    <div class="col-sm-4 offset-sm-4">
+        <p>¡El elemento no existe! Elemento:</p>
+        @if (TempData.ContainsKey("Item"))
+        {
+            <div class="alert alert-success">
+                @TempData["Item"]
+            </div>
+        }
+        <p>Verifique que los parámetros son correctos e inténtelo de nuevo.</p>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Regresar</a>
+    </div>
+</div>

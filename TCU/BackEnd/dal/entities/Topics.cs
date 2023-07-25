@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace BackEnd.dal.entities
+namespace bend.dal.entities
 {
     public partial class Topics
     {
@@ -47,7 +47,7 @@ namespace BackEnd.dal.entities
             string subject = "    \"Tema\": " + Topic + ",\n";
             string enabled = "    \"¿Habilitado?\": " + Enabled + ",\n";
 
-            return "Tema \n{\n" + id + cid + subject + enabled + "}";
+            return "Tema \n{\n" + id + cid + subject + enabled + "\n}";
         }
     }
 }

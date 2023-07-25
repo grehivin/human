@@ -1,24 +1,19 @@
-﻿using BackEnd.dal;
-using BackEnd.dal.entities;
+﻿using bend.dal;
+using bend.dal.entities;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace BackEnd.bil
+namespace bend.bil
 {
     public class Security : ISecurity
     {
-        private readonly HREContext _hre;
+        private readonly HREContext HumanRightsEducation_DB;
 
         public Security()
         {
-            _hre = new HREContext();
+            HumanRightsEducation_DB = new HREContext();
         }
 
         public async Task<bool> SignUp(Users user)
@@ -27,13 +22,13 @@ namespace BackEnd.bil
             {
                 user.Username = user.Email;
                 user.Enabled = true;
-                _hre.Add(user);
-                await _hre.SaveChangesAsync();
+                HumanRightsEducation_DB.Add(user);
+                await HumanRightsEducation_DB.SaveChangesAsync();
 
-                var _user = await _hre.Users.FirstOrDefaultAsync(u => u.Username == user.Username);
-                var role = await _hre.Roles.FirstOrDefaultAsync(r => r.Role == "Estudiante");
-                _hre.Add(new UserRoles(_user.Id, role.Id));
-                await _hre.SaveChangesAsync();
+                var _user = await HumanRightsEducation_DB.Users.FirstOrDefaultAsync(u => u.Username == user.Username);
+                var role = await HumanRightsEducation_DB.Roles.FirstOrDefaultAsync(r => r.Role == "Estudiante");
+                HumanRightsEducation_DB.Add(new UserRoles(_user.Id, role.Id));
+                await HumanRightsEducation_DB.SaveChangesAsync();
             }
             catch (Exception ex) 
             {
@@ -47,7 +42,7 @@ namespace BackEnd.bil
 
         public bool Exist(Users user)
         {
-            return _hre.Users.Any(u => u.Username == user.Username);
+            return HumanRightsEducation_DB.Users.Any(u => u.Username == user.Username);
         }
 
         public string GenerateVerificationCode(int length)
@@ -70,7 +65,7 @@ namespace BackEnd.bil
 
             try
             {
-                var _user = _hre.Users.FirstOrDefault(u => u.Username == user.Username);
+                var _user = HumanRightsEducation_DB.Users.FirstOrDefault(u => u.Username == user.Username);
 
                 if (_user == null)
                     return null;
@@ -91,8 +86,8 @@ namespace BackEnd.bil
         private ICollection<UserRoles> LoadRolesFor(Users user)
         {
             ICollection<UserRoles> _userRoles = new HashSet<UserRoles>();
-            List<UserRoles> userRoles = _hre.UserRoles.ToList();
-            List<Roles> roles = _hre.Roles.ToList();
+            List<UserRoles> userRoles = HumanRightsEducation_DB.UserRoles.ToList();
+            List<Roles> roles = HumanRightsEducation_DB.Roles.ToList();
 
             foreach (UserRoles role in userRoles)
                 if (role.UserId == user.Id)
@@ -123,7 +118,7 @@ namespace BackEnd.bil
         {
             try
             {
-                Users _user = await _hre.Users.FirstOrDefaultAsync(u => u.Username == user);
+                Users _user = await HumanRightsEducation_DB.Users.FirstOrDefaultAsync(u => u.Username == user);
 
                 if (_user == null)
                     return false;
@@ -131,8 +126,8 @@ namespace BackEnd.bil
                 _user.Password = password;
                 _user.ConfirmPassword = password;
 
-                _hre.Update(_user);
-                await _hre.SaveChangesAsync();
+                HumanRightsEducation_DB.Update(_user);
+                await HumanRightsEducation_DB.SaveChangesAsync();
             }
             catch (Exception ex)
             {

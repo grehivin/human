@@ -1,8 +1,8 @@
-﻿using BackEnd.bil;
-using BackEnd.dal.entities;
+﻿using bend.bil;
+using bend.dal.entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace FrontEnd.Models
+namespace fend.Models
 {
     public class ResetViewModel
     {

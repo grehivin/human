@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace BackEnd.dal.entities
+namespace bend.dal.entities
 {
     public partial class UserCourses
     {

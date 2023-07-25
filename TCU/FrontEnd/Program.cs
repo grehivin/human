@@ -1,4 +1,4 @@
-using BackEnd.bil;
+using bend.bil;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<ISecurity, Security>();
+builder.Services.AddSingleton<ILearning, Learning>();
 
 // Configuración para autenticación
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

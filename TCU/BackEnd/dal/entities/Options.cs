@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BackEnd.dal.entities
+namespace bend.dal.entities
 {
     public partial class Options
     {
@@ -52,12 +52,12 @@ namespace BackEnd.dal.entities
         public override string ToString()
         {
             string id = "    \"ID\": " + Id + ",\n";
-            string cid = "    \"IDPregunta\": " + ContentId + ",\n";
-            string desc = "    \"Descripcion\": " + Descr +",\n";
-            string enabled = "    \"Habilitada\": " + Enabled +",\n";
-            string valid = "    \"Valida\": " + Valid +",\n";
+            string cid = "    \"IDContenido\": " + ContentId + ",\n";
+            string desc = "    \"Descripción\": " + Descr +",\n";
+            string enabled = "    \"¿Habilitada?\": " + Enabled +",\n";
+            string valid = "    \"¿Valida?\": " + Valid +",\n";
 
-            return "Opcion \n{\n" + id + cid + desc + enabled + valid + "}";
+            return "Opcion \n{\n" + id + cid + desc + enabled + valid + "\n}";
         }
     }
 }

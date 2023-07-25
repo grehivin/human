@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jA0K+ICNC0/u/bjdLHO7MHDTNiTUHK3zdSL3XtJMLEh1r5Jklr6KrvtThNcdmRWnzAk3K8ayjWn5f7Um/ngGjQ==",
+  "dgSpecHash": "kanmWIZdle5nzV1ApGL670PwWJ0BCYzKVGR5OcgiOUoXrZI4MPuvOgN5BUuUNLGYALjkjKe5IrRw3l9HxCKy7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\FrontEnd\\FrontEnd.csproj",
+  "projectFilePath": "C:\\Users\\grehivin\\source\\repos\\human\\TCU\\FrontEnd\\fend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\grehivin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\grehivin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

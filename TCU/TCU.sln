@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33711.374
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{A54C3947-4872-4F8F-9139-ABA001450600}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fend", "FrontEnd\fend.csproj", "{A54C3947-4872-4F8F-9139-ABA001450600}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackEnd", "BackEnd\BackEnd.csproj", "{A065A56B-EE0D-4FB9-8A24-B39574F06F8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bend", "BackEnd\bend.csproj", "{A065A56B-EE0D-4FB9-8A24-B39574F06F8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

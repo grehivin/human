@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace BackEnd.dal.entities
+namespace bend.dal.entities
 {
     public partial class Courses
     {
@@ -42,11 +42,11 @@ namespace BackEnd.dal.entities
         public override string ToString()
         {
             string id = "    \"ID\": " + Id + ",\n";
-            string name = "    \"IDPersona\": " + Course + ",\n";
-            string descr = "    \"IDCurso\": " + Descr + ",\n";
-            string enabled = "    \"¿Completado?\": " + Enabled + ",\n";
+            string name = "    \"Curso\": " + Course + ",\n";
+            string descr = "    \"Descripción\": " + Descr + ",\n";
+            string enabled = "    \"¿Habilitado?\": " + Enabled + ",\n";
 
-            return "CursosPorPersona \n{\n" + id + name + descr + enabled + "}";
+            return "Curso \n{\n" + id + name + descr + enabled + "\n}";
         }
     }
 }

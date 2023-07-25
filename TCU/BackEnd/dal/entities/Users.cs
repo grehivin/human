@@ -7,7 +7,7 @@ using System.Xml.Linq;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace BackEnd.dal.entities
+namespace bend.dal.entities
 {
     public partial class Users
     {
