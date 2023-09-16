@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Error de registro";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Error de registro</h1>
+</div>
+<div class="alert alert-danger">
+    <p>El usuario ya se encuentra registrado en el sistema.</p>
+    <p>Prueba con un nombre de usuario y un correo electrónico diferentes</p>
+</div>
+<div class="text-left">
+    <a class="btn btn-danger" asp-controller="Session" asp-action="PasswordReset">Cambiar contraseña</a> 
+    <a class="btn btn-dark" asp-controller="Session" asp-action="SignUp">Regresar</a>
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Error de acceso";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Error de acceso</h1>
+</div>
+<div class="row mt-5">
+    <div class="col-sm-4 offset-sm-4">
+        <p>Ocurrió un error al validar su usuario, la causa puede ser una de las siguientes:</p>
+        <ul>
+            <li>El usuario es inválido o está vacío</li>
+            <li>Existe un problema con la configuración de acceso del usuario</li>
+            <li>El usuario no está autorizado para utilizar este recurso</li>
+            <li>La contraseña ingresada no coincide con la almacenada en nuestros registros</li>
+        </ul>
+        <a asp-controller="Session" asp-action="PasswordReset" class="btn btn-danger">Olvidé mi contraseña</a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Regresar</a>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model bend.dal.entities.Courses
+@{
+    ViewData["Title"] = "Crear curso";
+}
+
+<h1>Nuevo curso</h1>
+<nr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="CreateCourse">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                <input asp-for="Course" class="form-control" />
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descr" class="control-label"></label>
+                <input asp-for="Descr" class="form-control" />
+                <span asp-validation-for="Descr" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Enabled" /> @Html.DisplayNameFor(model => model.Enabled)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear curso" class="btn btn-primary" />
+                <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
